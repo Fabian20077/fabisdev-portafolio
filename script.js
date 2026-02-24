@@ -543,29 +543,31 @@ document.querySelectorAll('.project-card').forEach(card => {
 // ==================== CERTIFICADOS ====================
 
 document.querySelectorAll('.cert-preview').forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.stopPropagation();
+    button.addEventListener('click', () => {
         const certId = button.dataset.cert;
         const certificates = {
             cert1: 'public/assets/images/certificados/certificado de claude code.pdf',
             cert2: 'public/assets/images/certificados/certificado-claseflix PowerBI.pdf',
             cert3: 'public/assets/images/certificados/curador de datos.pdf',
-            cert4: 'https://via.placeholder.com/800x600?text=Full+Stack+FreeCodeCamp' // En proceso
+            cert4: null // En proceso
         };
         
-        const certModal = document.getElementById('certModal');
-        const certImage = document.getElementById('certImage');
-        
-        certImage.src = certificates[certId];
-        certImage.alt = `Certificado ${certId}`;
-        
-        // Si es URL de PDF, abrir en nueva pestaña
-        if (certificates[certId].endsWith('.pdf')) {
+        // Los PDFs se abren en nueva pestaña
+        if (certificates[certId]) {
             window.open(certificates[certId], '_blank');
-        } else {
-            certModal.classList.remove('hidden');
         }
     });
+});
+
+// Cerrar modal de certificados
+document.getElementById('closeCertModal')?.addEventListener('click', () => {
+    document.getElementById('certModal').classList.add('hidden');
+});
+
+// Cerrar al hacer click fuera
+document.getElementById('certModal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'certModal') e.target.classList.add('hidden');
+});
 });
 
 document.getElementById('closeCertModal')?.addEventListener('click', () => {
