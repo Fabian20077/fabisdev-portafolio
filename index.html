@@ -59,67 +59,78 @@
 
     <!-- STACK -->
     <section id="stack" style="padding: 5rem 1rem; background: #0a0f1c;">
-        <div style="max-width: 1280px; margin: 0 auto;">
+        <div style="max-width: 1100px; margin: 0 auto;">
             <h2 style="font-size: 2.5rem; font-weight: 700; color: #00d9ff; text-align: center; margin-bottom: 1rem;">Stack Técnico</h2>
-            <p style="color: #9ca3af; text-align: center; max-width: 42rem; margin: 0 auto 3rem;">Arquitectura validada en producción. Cada componente elegido estratégicamente.</p>
+            <p style="color: #9ca3af; text-align: center; max-width: 42rem; margin: 0 auto 3rem;">Herramientas y tecnologías que uso para construir soluciones robustas</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(0,217,255,0.2);">
-                    <i class="fas fa-cogs" style="font-size: 2.5rem; color: #00d9ff; margin-bottom: 1rem;"></i>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #00d9ff; margin-bottom: 0.5rem;">Backend Core</h3>
-                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">Arquitectura escalable basada en eventos. Node.js + Express.</p>
-                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
-                        <li style="margin-bottom: 0.25rem;">Node.js 18+ Event-Driven</li>
-                        <li style="margin-bottom: 0.25rem;">Express.js Middleware Pattern</li>
-                        <li>MVC Architecture</li>
-                    </ul>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                <!-- Backend -->
+                <div style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(180deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(0,217,255,0.3); text-align: center;">
+                    <i class="fas fa-server" style="font-size: 2rem; color: #00d9ff; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.125rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Backend</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(0,217,255,0.15); color: #00d9ff; font-size: 0.75rem; border-radius: 9999px;">Node.js</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(0,217,255,0.15); color: #00d9ff; font-size: 0.75rem; border-radius: 9999px;">Express</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(0,217,255,0.15); color: #00d9ff; font-size: 0.75rem; border-radius: 9999px;">REST API</span>
+                    </div>
                 </div>
 
-                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(0,240,255,0.2);">
-                    <i class="fas fa-database" style="font-size: 2.5rem; color: #00f0ff; margin-bottom: 1rem;"></i>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #00f0ff; margin-bottom: 0.5rem;">Database</h3>
-                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">MySQL 8.0 con optimización. Queries &lt; 85ms.</p>
-                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
-                        <li style="margin-bottom: 0.25rem;">MySQL 8.0 ACID</li>
-                        <li style="margin-bottom: 0.25rem;">Índices Compuestos</li>
-                        <li>Triggers & Stored Procedures</li>
-                    </ul>
+                <!-- Base de Datos -->
+                <div style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(180deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(0,240,255,0.3); text-align: center;">
+                    <i class="fas fa-database" style="font-size: 2rem; color: #00f0ff; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.125rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Base de Datos</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(0,240,255,0.15); color: #00f0ff; font-size: 0.75rem; border-radius: 9999px;">MySQL</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(0,240,255,0.15); color: #00f0ff; font-size: 0.75rem; border-radius: 9999px;">Queries</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(0,240,255,0.15); color: #00f0ff; font-size: 0.75rem; border-radius: 9999px;">Stored Procedures</span>
+                    </div>
                 </div>
 
-                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(217,70,239,0.2);">
-                    <i class="fas fa-palette" style="font-size: 2.5rem; color: #d946ef; margin-bottom: 1rem;"></i>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #d946ef; margin-bottom: 0.5rem;">Frontend & UI</h3>
-                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">Diseño responsive y animaciones premium.</p>
-                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
-                        <li style="margin-bottom: 0.25rem;">JavaScript ES6+</li>
-                        <li style="margin-bottom: 0.25rem;">Tailwind CSS</li>
-                        <li>Responsive Design</li>
-                    </ul>
+                <!-- Frontend -->
+                <div style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(180deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(217,70,239,0.3); text-align: center;">
+                    <i class="fas fa-palette" style="font-size: 2rem; color: #d946ef; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.125rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Frontend</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(217,70,239,0.15); color: #d946ef; font-size: 0.75rem; border-radius: 9999px;">JavaScript</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(217,70,239,0.15); color: #d946ef; font-size: 0.75rem; border-radius: 9999px;">HTML/CSS</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(217,70,239,0.15); color: #d946ef; font-size: 0.75rem; border-radius: 9999px;">Responsive</span>
+                    </div>
                 </div>
 
-                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(236,72,153,0.2);">
-                    <i class="fab fa-docker" style="font-size: 2.5rem; color: #ec4899; margin-bottom: 1rem;"></i>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ec4899; margin-bottom: 0.5rem;">Infraestructura</h3>
-                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">Containerización con Docker.</p>
-                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
-                        <li style="margin-bottom: 0.25rem;">Docker Multi-Stage</li>
-                        <li style="margin-bottom: 0.25rem;">Docker Compose</li>
-                        <li>CI/CD Ready</li>
-                    </ul>
+                <!-- DevOps -->
+                <div style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(180deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(236,72,153,0.3); text-align: center;">
+                    <i class="fab fa-docker" style="font-size: 2rem; color: #ec4899; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.125rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">DevOps</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(236,72,153,0.15); color: #ec4899; font-size: 0.75rem; border-radius: 9999px;">Docker</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(236,72,153,0.15); color: #ec4899; font-size: 0.75rem; border-radius: 9999px;">Git</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(236,72,153,0.15); color: #ec4899; font-size: 0.75rem; border-radius: 9999px;">CI/CD</span>
+                    </div>
                 </div>
 
-                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(16,185,129,0.2); grid-column: span 2;">
-                    <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: #10b981; margin-bottom: 1rem;"></i>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">Validación & Seguridad</h3>
-                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">3 capas de protección. QA mindset.</p>
-                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
-                        <li style="margin-bottom: 0.25rem;">Zod Schema Validation</li>
-                        <li style="margin-bottom: 0.25rem;">JWT Auth Stateless</li>
-                        <li>Security Headers + CORS</li>
-                    </ul>
+                <!-- Seguridad -->
+                <div style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(180deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(16,185,129,0.3); text-align: center;">
+                    <i class="fas fa-shield-alt" style="font-size: 2rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.125rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Seguridad</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(16,185,129,0.15); color: #10b981; font-size: 0.75rem; border-radius: 9999px;">JWT</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(16,185,129,0.15); color: #10b981; font-size: 0.75rem; border-radius: 9999px;">Zod</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(16,185,129,0.15); color: #10b981; font-size: 0.75rem; border-radius: 9999px;">CORS</span>
+                    </div>
+                </div>
+
+                <!-- Testing -->
+                <div style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(180deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(245,158,11,0.3); text-align: center;">
+                    <i class="fas fa-bug" style="font-size: 2rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.125rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">QA & Testing</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(245,158,11,0.15); color: #f59e0b; font-size: 0.75rem; border-radius: 9999px;">Pruebas</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(245,158,11,0.15); color: #f59e0b; font-size: 0.75rem; border-radius: 9999px;">Validación</span>
+                        <span style="padding: 0.25rem 0.75rem; background: rgba(245,158,11,0.15); color: #f59e0b; font-size: 0.75rem; border-radius: 9999px;">Documentación</span>
+                    </div>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
     <!-- FORMACIÓN -->
