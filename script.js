@@ -175,5 +175,16 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Abriéndose cliente de email...');
     });
 
+    // Event listeners para carruseles de proyectos
+    const carouselMv1 = document.getElementById('carousel-mv1');
+    const carouselMvpro = document.getElementById('carousel-mvpro');
+    
+    if (carouselMv1) {
+        carouselMv1.addEventListener('click', () => openCarousel('mv1'));
+    }
+    if (carouselMvpro) {
+        carouselMvpro.addEventListener('click', () => openCarousel('mvpro'));
+    }
+
     console.log('✅ Portfolio initialized');
 });
