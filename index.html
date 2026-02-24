@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fabián Pilonieta (Fabisdev) - Full Stack Developer & QA Engineer. Especializado en Backend, MySQL, Docker y arquitectura escalable.">
+    <meta name="keywords" content="full stack developer, backend engineer, QA, Node.js, MySQL, Docker, JavaScript, TypeScript">
+    <meta name="author" content="Fabián Pilonieta">
+    <meta name="theme-color" content="#00d9ff">
+    
+    <title>Fabisdev - Full Stack Developer & QA Engineer</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': '#00d9ff',
+                        'neon-cyan': '#00f0ff',
+                        'neon-purple': '#d946ef',
+                        'neon-pink': '#ec4899',
+                        'accent': '#10b981',
+                        'bg-dark': '#0a0f1c',
+                        'bg-darker': '#050812',
+                        'bg-card': '#0f1629',
+                        'text-muted': '#a0aec0',
+                        'text-subtle': '#64748b'
+                    },
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'sans-serif']
+                    },
+                    keyframes: {
+                        'neon-glow': {
+                            '0%, 100%': { 
+                                textShadow: '0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(217, 70, 239, 0.3)',
+                                filter: 'drop-shadow(0 0 8px rgba(0, 217, 255, 0.4))'
+                            },
+                            '50%': { 
+                                textShadow: '0 0 20px rgba(0, 217, 255, 0.8), 0 0 40px rgba(217, 70, 239, 0.6)',
+                                filter: 'drop-shadow(0 0 20px rgba(0, 217, 255, 0.7))'
+                            }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' }
+                        },
+                        'slide-in': {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        'pulse-neon': {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' }
+                        },
+                        'rotate-slow': {
+                            'from': { transform: 'rotate(0deg)' },
+                            'to': { transform: 'rotate(360deg)' }
+                        }
+                    },
+                    animation: {
+                        'neon-glow': 'neon-glow 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-in': 'slide-in 0.6s ease-out',
+                        'pulse-neon': 'pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'rotate-slow': 'rotate-slow 20s linear infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-bg-dark text-white font-sans overflow-x-hidden scroll-smooth">
+
+    <!-- NAVBAR FIJA -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-lg border-b border-neon-blue/20 z-50 transition-all duration-300 shadow-lg shadow-neon-blue/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-black text-neon-blue animate-pulse-neon hover:text-neon-cyan transition-colors">
+                    fabisdev
+                </a>
+                <ul class="hidden md:flex gap-8 text-sm font-medium">
+                    <li><a href="#stack" class="hover:text-neon-cyan transition-colors">Stack</a></li>
+                    <li><a href="#experiencia" class="hover:text-neon-cyan transition-colors">Experiencia</a></li>
+                    <li><a href="#proyectos" class="hover:text-neon-cyan transition-colors">Proyectos</a></li>
+                    <li><a href="#certificados" class="hover:text-neon-cyan transition-colors">Certificados</a></li>
+                    <li><a href="#contacto" class="hover:text-neon-cyan transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden bg-gradient-to-br from-bg-dark via-bg-darker to-bg-dark/80 radial-glow">
+        <!-- Fondo animado -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute w-96 h-96 bg-neon-blue rounded-full blur-3xl top-10 left-10 animate-float"></div>
+            <div class="absolute w-96 h-96 bg-neon-purple rounded-full blur-3xl bottom-20 right-10 animate-float" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="relative z-10 text-center max-w-3xl mx-auto px-4 animate-slide-in">
+            <h1 class="text-5xl md:text-7xl font-black mb-4 font-display text-neon-blue neon-glow">
+                Fabisdev
+            </h1>
+            
+            <div class="text-xl md:text-2xl mb-2 h-8 text-text-muted">
+                <span class="text-neon-cyan font-bold" id="typing">Full Stack Developer</span>
+            </div>
+            
+            <p class="text-lg text-text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
+                Backend Engineer & QA Specialist especializado en arquitecturas escalables, validación estricta de datos e infraestructura containerizada
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+                <a href="https://github.com/fabisdev" target="_blank" rel="noopener" 
+                   class="px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-bg-dark hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/fabisdev" target="_blank" rel="noopener"
+                   class="px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-bg-dark hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
+                    LinkedIn
+                </a>
+                <a href="#contacto"
+                   class="px-6 py-3 border-2 border-neon-cyan text-neon-cyan font-semibold rounded-lg hover:bg-neon-cyan hover:text-bg-dark hover:shadow-lg hover:shadow-neon-cyan/50 transition-all">
+                    Contactar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STACK SECTION -->
+    <section id="stack" class="py-24 px-4 md:py-48 relative">
+        <!-- Divisor sutil superior -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <!-- Encabezado mejorado -->
+            <div class="mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-4 text-neon-blue neon-glow">Stack Técnico</h2>
+                <p class="text-lg text-text-muted max-w-3xl">Arquitectura validada en producción. Cada componente elegido estratégicamente para performance, seguridad y escalabilidad.</p>
+            </div>
+            
+            <!-- Grid de 5 categorías - Visual y potente -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                
+                <!-- 1. BACKEND CORE -->
+                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-neon-blue/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-neon-blue/20">
+                    <!-- Glow effect al hover -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neon-blue/10 to-transparent rounded-xl"></div>
+                    </div>
+                    
+                    <div class="relative z-10 space-y-6">
+                        <!-- Icono GRANDE + Título -->
+                        <div class="space-y-4">
+                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">⚙️</div>
+                            <h3 class="text-2xl font-black text-neon-blue group-hover:text-neon-cyan transition-colors">Backend Core</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">Arquitectura escalable basada en eventos. Node.js + Express para máximo rendimiento.</p>
+                        </div>
+                        
+                        <!-- Tech items (sin tooltips, visual directo) -->
+                        <div class="space-y-2 pt-4 border-t border-neon-blue/20">
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-blue group-hover:bg-neon-cyan transition-colors"></span>
+                                <span class="text-sm font-medium">Node.js 18+ Event-Driven</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-blue group-hover:bg-neon-cyan transition-colors"></span>
+                                <span class="text-sm font-medium">Express.js Middleware Pattern</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-blue group-hover:bg-neon-cyan transition-colors"></span>
+                                <span class="text-sm font-medium">MVC Architecture Separation</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-blue group-hover:bg-neon-cyan transition-colors"></span>
+                                <span class="text-sm font-medium">Centralized Error Handling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. DATABASE -->
+                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-neon-cyan/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-neon-cyan/20">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/10 to-transparent rounded-xl"></div>
+                    </div>
+                    
+                    <div class="relative z-10 space-y-6">
+                        <div class="space-y-4">
+                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">💾</div>
+                            <h3 class="text-2xl font-black text-neon-cyan group-hover:text-neon-blue transition-colors">Database</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">MySQL 8.0 con optimización agresiva. Queries < 85ms garantizado.</p>
+                        </div>
+                        
+                        <div class="space-y-2 pt-4 border-t border-neon-cyan/20">
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">MySQL 8.0 ACID Compliant</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Índices Primarios y Compuestos</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Foreign Keys Integridad</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Triggers & Stored Procedures</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. FRONTEND & UI -->
+                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-neon-purple/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-neon-purple/20">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neon-purple/10 to-transparent rounded-xl"></div>
+                    </div>
+                    
+                    <div class="relative z-10 space-y-6">
+                        <div class="space-y-4">
+                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">🎨</div>
+                            <h3 class="text-2xl font-black text-neon-purple group-hover:text-neon-blue transition-colors">Frontend & UI</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">Diseño responsive, accesibilidad a11y y animaciones premium.</p>
+                        </div>
+                        
+                        <div class="space-y-2 pt-4 border-t border-neon-purple/20">
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-purple group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">JavaScript ES6+ Modern</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-purple group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Tailwind CSS Custom Theme</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-purple group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Responsive Design Mobile-First</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-purple group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">CSS Keyframe Animations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. INFRAESTRUCTURA -->
+                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-neon-pink/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-neon-pink/20">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neon-pink/10 to-transparent rounded-xl"></div>
+                    </div>
+                    
+                    <div class="relative z-10 space-y-6">
+                        <div class="space-y-4">
+                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">🐳</div>
+                            <h3 class="text-2xl font-black text-neon-pink group-hover:text-neon-blue transition-colors">Infraestructura</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">Containerización con Docker. Orquestación y deploy escalable.</p>
+                        </div>
+                        
+                        <div class="space-y-2 pt-4 border-t border-neon-pink/20">
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-pink group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Docker Multi-Stage Builds</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-pink group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Docker Compose Orchestration</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-pink group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Env Variables & Secrets</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-neon-pink group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Git Workflow & CI/CD Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. VALIDACIÓN & SEGURIDAD -->
+                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-accent/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-accent/20 md:col-span-2 lg:col-span-1">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent rounded-xl"></div>
+                    </div>
+                    
+                    <div class="relative z-10 space-y-6">
+                        <div class="space-y-4">
+                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">🛡️</div>
+                            <h3 class="text-2xl font-black text-accent group-hover:text-neon-blue transition-colors">Validación & Seguridad</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">3 capas de protección. QA mindset desde arquitectura.</p>
+                        </div>
+                        
+                        <div class="space-y-2 pt-4 border-t border-accent/20">
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Zod Schema Validation</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">JWT Auth Stateless</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Bcryptjs Password Hashing</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent group-hover:bg-neon-blue transition-colors"></span>
+                                <span class="text-sm font-medium">Security Headers + CORS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Divisor sutil inferior -->
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
+    </section>
+
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Interfaz responsive</span>
+                        </li>
+                    </ul>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold mt-1">-</span>
+                            <span class="text-text-muted">Sin módulo POS</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold mt-1">-</span>
+                            <span class="text-text-muted">Cálculos manuales de impuestos</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold mt-1">-</span>
+                            <span class="text-text-muted">Reportes estáticos</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold mt-1">-</span>
+                            <span class="text-text-muted">UX sin optimización de fatiga visual</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MV INVENTARIO PRO -->
+    <section id="mv-pro" class="py-20 px-4 md:py-28">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 text-white hero-glow">MV Inventario Pro</h2>
+            <p class="text-lg text-text-muted mb-12">Sistema Profesional - Solución Empresarial Completa</p>
+            
+            <div class="p-8 bg-bg-card border-2 border-primary/50 rounded-lg shadow-lg shadow-primary/30">
+                <h3 class="text-2xl font-bold text-white mb-6">Funcionalidades Avanzadas</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Módulo POS con facturación integrada</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Cálculo automático de impuestos (precisión decimal)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Panel Settings dinámico (logos corporativos)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Reportes PDF/Excel profesionales</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Arquitectura: 3 contenedores Docker</span>
+                        </li>
+                    </ul>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Validación estricta con Zod</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Seguridad JWT + bcryptjs</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Análisis estratégico (tendencias, márgenes)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Modo oscuro nativo optimizado</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent font-bold mt-1">✓</span>
+                            <span class="text-text-muted">Auditoría completa en BD</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Retos Técnicos -->
+            <h3 class="text-2xl font-bold text-white mt-16 mb-8">Retos Técnicos Resueltos</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-bg-card border-l-4 border-primary rounded">
+                    <h4 class="text-lg font-bold text-primary mb-3">Optimización de Queries</h4>
+                    <p class="text-text-muted text-sm">Reducción de 10 segundos a 85ms mediante índices estratégicos y vistas materializadas. Análisis con EXPLAIN PLAN.</p>
+                </div>
+                <div class="p-6 bg-bg-card border-l-4 border-primary rounded">
+                    <h4 class="text-lg font-bold text-primary mb-3">Precisión Contable</h4>
+                    <p class="text-text-muted text-sm">Cálculos de impuestos con Decimal.js. Validación en BD con triggers. Auditoría automática de cambios.</p>
+                </div>
+                <div class="p-6 bg-bg-card border-l-4 border-primary rounded">
+                    <h4 class="text-lg font-bold text-primary mb-3">Assets Dinámicos</h4>
+                    <p class="text-text-muted text-sm">Upload seguro de logos. Inyección en PDF con pdfkit. Notificación en tiempo real con WebSocket.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QA MINDSET SECTION -->
+    <section id="qa" class="py-24 px-4 md:py-48 relative bg-gradient-to-b from-accent/5 via-accent/3 to-transparent">
+        <!-- Patrón de fondo sutil diferenciador -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-accent/20 to-transparent rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-radial from-neon-purple/10 to-transparent rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-4 text-white">QA Mindset</h2>
+                <p class="text-lg text-text-muted max-w-3xl">Calidad como Prioridad - Mi enfoque diferencia entre junior y senior. Las capas de validación evitan 80% de bugs antes de producción.</p>
+            </div>
+            
+            <!-- Grid de 6 puntos con PEQUEÑOS iconos y titles claros -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 1. Validación -->
+                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl">🛡️</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-accent mb-2">Validación Estricta</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">
+                                Esquemas de Zod en 3 capas: Frontend (UX) + Backend (lógica) + Base de Datos (constraints). Previene inyecciones SQL y garantiza integridad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Seguridad JWT -->
+                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl">🔐</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-accent mb-2">Seguridad JWT</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">
+                                Autenticación stateless con JWT + bcryptjs. Validación en middleware, autorización por roles y refresh tokens para sesiones.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Testing Funcional -->
+                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl">📊</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-accent mb-2">Testing Funcional</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">
+                                Pruebas rigurosas de casos límite: concurrencia, edge cases, cálculos decimales precisos, validación de logs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Análisis de Logs -->
+                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl">🔍</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-accent mb-2">Análisis de Logs</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">
+                                Monitoreo activo de contenedores Docker. Identificación de cuellos de botella, errores silenciosos y patrones anómalos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Auditoría BD -->
+                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl">🗄️</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-accent mb-2">Auditoría BD</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">
+                                Validación exhaustiva con MySQL Workbench: constraints, triggers, relaciones, historiales y datos corruptos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. 3 Capas -->
+                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl">🏗️</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-accent mb-2">Arquitectura 3 Capas</h3>
+                            <p class="text-sm text-text-muted leading-relaxed">
+                                Frontend validación (UX) + Backend (lógica) + BD (constraints). Fallo en una capa no compromete integridad total.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCIA SECTION -->
+    <section id="experiencia" class="py-20 px-4 md:py-36 relative bg-gradient-to-b from-bg-dark/50 via-bg-dark to-bg-dark/50">
+        <!-- Divisor sutil superior -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 text-neon-blue neon-glow">Experiencia</h2>
+            <p class="text-lg text-text-muted mb-12">Mi viaje en desarrollo - Aprendiendo con cada proyecto</p>
+            
+            <div class="space-y-8">
+                <!-- Experiencia 1 -->
+                <div class="p-8 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl text-neon-blue">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-neon-blue mb-2">Aprendizaje Continuo</h3>
+                            <p class="text-neon-cyan font-semibold mb-3">Desarrollador Autodidacta | 2024 - Presente</p>
+                            <p class="text-text-muted leading-relaxed">
+                                Especializándome en arquitectura backend escalable, validación de datos y experiencia de usuario. 
+                                Utilizando tecnologías modernas como Node.js, Express, MySQL y Docker para construir soluciones empresariales.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiencia 2 -->
+                <div class="p-8 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="text-4xl text-neon-cyan">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-neon-cyan mb-2">Mindset de Calidad</h3>
+                            <p class="text-text-subtle font-semibold mb-3">QA First Approach</p>
+                            <p class="text-text-muted leading-relaxed">
+                                Implemento validación rigurosa en 3 capas: Frontend (UX), Backend (lógica) y Base de Datos (constraints). 
+                                Creo que la calidad no es un paso final, sino parte fundamental de la arquitectura desde el inicio.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lección de Vida -->
+                <div class="p-8 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 border border-neon-blue/30 rounded-lg">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl text-neon-purple">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-3">La Evolución del Aprendizaje</h3>
+                            <p class="text-text-muted leading-relaxed mb-4">
+                                <span class="text-neon-blue font-semibold">La versión 1.0 me enseñó a construir;</span> 
+                                entendí los fundamentos de backend, bases de datos y cómo estructurar un proyecto de cero.
+                            </p>
+                            <p class="text-text-muted leading-relaxed mb-4">
+                                <span class="text-neon-cyan font-semibold">La versión actual me enseñó a diseñar y mejorar;</span> 
+                                optimicé queries de 10 segundos a 85ms, implementé seguridad robusta y creé una UX pensada en el usuario.
+                            </p>
+                            <p class="text-text-muted leading-relaxed">
+                                <span class="text-neon-pink font-semibold">Aprendí que los errores no son fallas personales,</span> 
+                                sino <span class="text-accent">oportunidades para fortalecer arquitectura, validaciones y experiencia de usuario.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTOS SECTION -->
+    <section id="proyectos" class="py-20 px-4 md:py-32 relative">
+        <!-- Divisor sutil superior -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <!-- Encabezado mejorado -->
+            <div class="mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-3 text-neon-blue neon-glow">Proyectos</h2>
+                <p class="text-lg text-text-muted max-w-2xl">Dos versiones que trazan mi evolución. De aprender a construir, a dominar el diseño y la optimización.</p>
+            </div>
+
+            <!-- PROYECTO 1: MV INVENTARIO 1.0 - Mini-landing format -->
+            <div class="project-showcase scroll-fade mb-16 md:mb-32 cursor-pointer group" data-project="mv10">
+                <div class="space-y-8">
+                    <!-- Imagen GRANDE arriba - Full width -->
+                    <div class="relative rounded-xl overflow-hidden image-shadow image-border h-96 md:h-[480px] lg:h-[560px]">
+                        <div class="image-container-16-9">
+                            <img src="public/assets/images/projects/Mv inventario 1-0/dashboard.png" alt="MV 1.0 Dashboard" class="carousel-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent opacity-40"></div>
+                        </div>
+
+                        <!-- Carousel dots overlay -->
+                        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-blue/70 hover:bg-neon-blue transition-all" data-slide="0"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-blue/40 hover:bg-neon-blue transition-all" data-slide="1"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-blue/40 hover:bg-neon-blue transition-all" data-slide="2"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-blue/40 hover:bg-neon-blue transition-all" data-slide="3"></button>
+                        </div>
+
+                        <!-- Carousel controls -->
+                        <button class="carousel-prev absolute left-8 top-1/2 -translate-y-1/2 w-14 h-14 bg-neon-blue/80 hover:bg-neon-blue text-white rounded-full transition-all opacity-0 group-hover:opacity-100 z-10 flex items-center justify-center shadow-lg shadow-neon-blue/30">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button class="carousel-next absolute right-8 top-1/2 -translate-y-1/2 w-14 h-14 bg-neon-blue/80 hover:bg-neon-blue text-white rounded-full transition-all opacity-0 group-hover:opacity-100 z-10 flex items-center justify-center shadow-lg shadow-neon-blue/30">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Contenido DEBAJO -->
+                    <div class="space-y-8 pt-4">
+                        <!-- Badge + Títulos -->
+                        <div class="space-y-4">
+                            <span class="inline-block px-4 py-2 bg-neon-blue/20 text-neon-blue rounded-full text-xs font-bold uppercase tracking-wider">📋 Prototipo Funcional</span>
+                            <h3 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+                                MV Inventario <span class="text-neon-blue">1.0</span>
+                            </h3>
+                            <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-3xl">
+                                Mi primer proyecto serio. Aprendí los fundamentos: backend basado en eventos, bases de datos relacionales y cómo pensar arquitectura desde el inicio.
+                            </p>
+                        </div>
+
+                        <!-- 3 MÉTRICAS GRANDES como cards con hover -->
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-blue/15 to-neon-blue/5 border border-neon-blue/40 rounded-xl hover:border-neon-blue/80 hover:bg-neon-blue/25 hover:shadow-lg hover:shadow-neon-blue/20 transition-all duration-300 group/stat">
+                                <div class="text-6xl md:text-7xl font-black text-neon-blue mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">4</div>
+                                <div class="text-sm font-bold text-neon-blue mb-2 uppercase tracking-widest">KPIs Principales</div>
+                                <p class="text-xs text-text-muted leading-relaxed">Dashboard con análisis en tiempo real usando Chart.js</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-cyan/15 to-neon-cyan/5 border border-neon-cyan/40 rounded-xl hover:border-neon-cyan/80 hover:bg-neon-cyan/25 hover:shadow-lg hover:shadow-neon-cyan/20 transition-all duration-300 group/stat">
+                                <div class="text-5xl md:text-6xl font-black text-neon-cyan mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">Real-time</div>
+                                <div class="text-sm font-bold text-neon-cyan mb-2 uppercase tracking-widest">Análisis en Vivo</div>
+                                <p class="text-xs text-text-muted leading-relaxed">Datos actualizados constantemente en cliente</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-purple/15 to-neon-purple/5 border border-neon-purple/40 rounded-xl hover:border-neon-purple/80 hover:bg-neon-purple/25 hover:shadow-lg hover:shadow-neon-purple/20 transition-all duration-300 group/stat">
+                                <div class="text-6xl md:text-7xl font-black text-neon-purple mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">∞</div>
+                                <div class="text-sm font-bold text-neon-purple mb-2 uppercase tracking-widest">Escalable</div>
+                                <p class="text-xs text-text-muted leading-relaxed">Arquitectura lista para crecer sin limites</p>
+                            </div>
+                        </div>
+
+                        <!-- Descripción narrativa -->
+                        <div class="space-y-5 text-lg text-text-muted leading-relaxed border-l-2 border-neon-blue/30 pl-6">
+                            <p>
+                                Este proyecto fue mi primer contacto serio con arquitectura backend. Implementé un dashboard con 4 KPIs principales, análisis en tiempo real con Chart.js, exportación de reportes (Excel, CSV, PDF) e interfaz totalmente responsive.
+                            </p>
+                            <p>
+                                <span class="text-neon-blue font-semibold">Lo que aprendí:</span> Fundamentos sólidos de Node.js + Express, diseño de bases de datos relacionales, patrones REST API y cómo pensar en escalabilidad desde el arquitecto.
+                            </p>
+                        </div>
+
+                        <!-- Tech Stack horizontal -->
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-text-muted uppercase tracking-widest">Stack Técnico</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-6 py-3 bg-neon-blue/15 border border-neon-blue/50 text-neon-blue rounded-lg text-sm font-semibold hover:bg-neon-blue/30 hover:border-neon-blue/80 transition-all">⚙️ Node.js</span>
+                                <span class="px-6 py-3 bg-neon-blue/15 border border-neon-blue/50 text-neon-blue rounded-lg text-sm font-semibold hover:bg-neon-blue/30 hover:border-neon-blue/80 transition-all">📚 Express.js</span>
+                                <span class="px-6 py-3 bg-neon-cyan/15 border border-neon-cyan/50 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 hover:border-neon-cyan/80 transition-all">💾 MySQL 8.0</span>
+                                <span class="px-6 py-3 bg-neon-purple/15 border border-neon-purple/50 text-neon-purple rounded-lg text-sm font-semibold hover:bg-neon-purple/30 hover:border-neon-purple/80 transition-all">📊 Chart.js</span>
+                            </div>
+                        </div>
+
+                        <!-- Botones CTA -->
+                        <div class="flex gap-4 flex-wrap pt-4">
+                            <a href="#" class="px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-cyan text-bg-dark font-bold rounded-lg hover:shadow-xl hover:shadow-neon-blue/50 transition-all group/btn text-base">
+                                Ver Proyecto <span class="ml-2 group-hover/btn:translate-x-2 transition-transform">→</span>
+                            </a>
+                            <a href="#" class="px-8 py-4 border-2 border-neon-blue text-neon-blue font-bold rounded-lg hover:bg-neon-blue/10 transition-all text-base">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 2: MV INVENTARIO PRO - Mini-landing format -->
+            <div class="project-showcase scroll-fade cursor-pointer group" data-project="mvpro">
+                <div class="space-y-8">
+                    <!-- Imagen GRANDE arriba - Full width (Premium placeholder) -->
+                    <div class="relative rounded-xl overflow-hidden image-shadow image-border h-96 md:h-[480px] lg:h-[560px] bg-gradient-to-br from-neon-cyan/25 via-neon-purple/15 to-bg-dark">
+                        <div class="image-container-16-9 flex items-center justify-center">
+                            <div class="text-center z-10 space-y-4">
+                                <i class="fas fa-crown text-9xl md:text-[140px] text-neon-cyan/50 drop-shadow-lg"></i>
+                                <p class="text-text-muted text-lg md:text-xl font-semibold">Versión Premium - Solución Empresarial</p>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-bg-dark/50 via-transparent to-transparent"></div>
+                        </div>
+
+                        <!-- Carousel dots overlay -->
+                        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-cyan/70 hover:bg-neon-cyan transition-all" data-slide="0"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-cyan/40 hover:bg-neon-cyan transition-all" data-slide="1"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-cyan/40 hover:bg-neon-cyan transition-all" data-slide="2"></button>
+                        </div>
+                    </div>
+
+                    <!-- Contenido DEBAJO -->
+                    <div class="space-y-8 pt-4">
+                        <!-- Badge + Títulos -->
+                        <div class="space-y-4">
+                            <span class="inline-block px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-full text-xs font-bold uppercase tracking-wider">⚡ Optimización Avanzada</span>
+                            <h3 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+                                MV Inventario <span class="text-neon-cyan">Pro</span>
+                            </h3>
+                            <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-3xl">
+                                La versión mejorada. Aquí consolidé conocimiento: optimización de queries (10s → 85ms), validación estricta 3 capas, seguridad JWT robusta y containerización con Docker.
+                            </p>
+                        </div>
+
+                        <!-- 3 MÉTRICAS GRANDES como cards con hover -->
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-cyan/15 to-neon-cyan/5 border border-neon-cyan/40 rounded-xl hover:border-neon-cyan/80 hover:bg-neon-cyan/25 hover:shadow-lg hover:shadow-neon-cyan/20 transition-all duration-300 group/stat">
+                                <div class="text-6xl md:text-7xl font-black text-neon-cyan mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">10x</div>
+                                <div class="text-sm font-bold text-neon-cyan mb-2 uppercase tracking-widest">Más Rápido</div>
+                                <p class="text-xs text-text-muted leading-relaxed">Queries optimizadas: antes 10s → ahora 85ms</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/25 hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 group/stat">
+                                <div class="text-6xl md:text-7xl font-black text-accent mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">100%</div>
+                                <div class="text-sm font-bold text-accent mb-2 uppercase tracking-widest">Validación</div>
+                                <p class="text-xs text-text-muted leading-relaxed">3 capas de protección: Frontend + Backend + BD</p>
+                            </div>
+                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-purple/15 to-neon-purple/5 border border-neon-purple/40 rounded-xl hover:border-neon-purple/80 hover:bg-neon-purple/25 hover:shadow-lg hover:shadow-neon-purple/20 transition-all duration-300 group/stat">
+                                <div class="text-6xl md:text-7xl font-black text-neon-purple mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">3</div>
+                                <div class="text-sm font-bold text-neon-purple mb-2 uppercase tracking-widest">Contenedores</div>
+                                <p class="text-xs text-text-muted leading-relaxed">Orquestados con Docker Compose</p>
+                            </div>
+                        </div>
+
+                        <!-- Descripción narrativa -->
+                        <div class="space-y-5 text-lg text-text-muted leading-relaxed border-l-2 border-neon-cyan/30 pl-6">
+                            <p>
+                                Esta versión es donde consolidé mi entendimiento de arquitectura backend escalable. Implementé validación estricta con Zod en 3 capas (Frontend + Backend + BD), seguridad JWT + bcryptjs, módulo POS con facturación automática, containerización con Docker y monitoreo de logs.
+                            </p>
+                            <p>
+                                <span class="text-neon-cyan font-semibold">Lo que aprendí:</span> Performance optimization, arquitetura de microservicios con Docker, QA mindset riguroso y cómo un buen diseño elimina 80% de bugs antes que salgan.
+                            </p>
+                        </div>
+
+                        <!-- Tech Stack horizontal -->
+                        <div class="space-y-4">
+                            <h4 class="text-xs font-bold text-text-muted uppercase tracking-widest">Stack Técnico</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-6 py-3 bg-neon-cyan/15 border border-neon-cyan/50 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 hover:border-neon-cyan/80 transition-all">⚙️ Node.js</span>
+                                <span class="px-6 py-3 bg-accent/15 border border-accent/50 text-accent rounded-lg text-sm font-semibold hover:bg-accent/30 hover:border-accent/80 transition-all">✅ Zod Validation</span>
+                                <span class="px-6 py-3 bg-neon-purple/15 border border-neon-purple/50 text-neon-purple rounded-lg text-sm font-semibold hover:bg-neon-purple/30 hover:border-neon-purple/80 transition-all">🐳 Docker</span>
+                                <span class="px-6 py-3 bg-neon-pink/15 border border-neon-pink/50 text-neon-pink rounded-lg text-sm font-semibold hover:bg-neon-pink/30 hover:border-neon-pink/80 transition-all">🔐 JWT Auth</span>
+                            </div>
+                        </div>
+
+                        <!-- Botones CTA -->
+                        <div class="flex gap-4 flex-wrap pt-4">
+                            <a href="#" class="px-8 py-4 bg-gradient-to-r from-neon-cyan to-neon-blue text-bg-dark font-bold rounded-lg hover:shadow-xl hover:shadow-neon-cyan/50 transition-all group/btn text-base">
+                                Ver Proyecto <span class="ml-2 group-hover/btn:translate-x-2 transition-transform">→</span>
+                            </a>
+                            <a href="#" class="px-8 py-4 border-2 border-neon-cyan text-neon-cyan font-bold rounded-lg hover:bg-neon-cyan/10 transition-all text-base">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divisor sutil inferior -->
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
+    </section>
+
+    <!-- DIVISOR VISUAL ENTRE SECCIONES -->
+    <div class="h-px bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent"></div>
+
+    <!-- CERTIFICADOS SECTION -->
+    <section id="certificados" class="py-20 px-4 md:py-36 relative bg-gradient-to-b from-transparent via-bg-dark/30 to-transparent">
+        <!-- Divisor sutil superior -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 text-neon-blue neon-glow">Certificados & Validaciones</h2>
+            <p class="text-lg text-text-muted mb-12">Educación continua y validación de competencias</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Certificado 1 -->
+                <div class="p-6 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-neon-blue mb-1">Claude Code Mastery</h3>
+                            <p class="text-text-muted text-sm">Certificado de Competencia</p>
+                        </div>
+                        <i class="fas fa-certificate text-neon-cyan text-2xl"></i>
+                    </div>
+                    <p class="text-text-subtle text-xs mb-4">Completado: 2025</p>
+                    <div class="flex gap-3">
+                        <button class="cert-preview px-4 py-2 bg-neon-blue/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-blue/30 transition-all" data-cert="cert1">
+                            <i class="fas fa-file-pdf mr-2"></i>Ver PDF
+                        </button>
+                        <a href="public/assets/images/certificados/certificado de claude code.pdf" download class="px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 transition-all">
+                            <i class="fas fa-download mr-2"></i>Descargar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Certificado 2 -->
+                <div class="p-6 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-neon-blue mb-1">ClaseFlix - Power BI</h3>
+                            <p class="text-text-muted text-sm">Análisis de Datos & Visualización</p>
+                        </div>
+                        <i class="fas fa-certificate text-neon-cyan text-2xl"></i>
+                    </div>
+                    <p class="text-text-subtle text-xs mb-4">Completado: 2025</p>
+                    <div class="flex gap-3">
+                        <button class="cert-preview px-4 py-2 bg-neon-blue/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-blue/30 transition-all" data-cert="cert2">
+                            <i class="fas fa-file-pdf mr-2"></i>Ver PDF
+                        </button>
+                        <a href="public/assets/images/certificados/certificado-claseflix PowerBI.pdf" download class="px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 transition-all">
+                            <i class="fas fa-download mr-2"></i>Descargar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Certificado 3 -->
+                <div class="p-6 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-neon-blue mb-1">Curador de Datos</h3>
+                            <p class="text-text-muted text-sm">Data Management & Curation</p>
+                        </div>
+                        <i class="fas fa-certificate text-neon-cyan text-2xl"></i>
+                    </div>
+                    <p class="text-text-subtle text-xs mb-4">Completado: 2025</p>
+                    <div class="flex gap-3">
+                        <button class="cert-preview px-4 py-2 bg-neon-blue/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-blue/30 transition-all" data-cert="cert3">
+                            <i class="fas fa-file-pdf mr-2"></i>Ver PDF
+                        </button>
+                        <a href="public/assets/images/certificados/curador de datos.pdf" download class="px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 transition-all">
+                            <i class="fas fa-download mr-2"></i>Descargar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Certificado 4 -->
+                <div class="p-6 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-neon-blue mb-1">Full Stack Web Development</h3>
+                            <p class="text-text-muted text-sm">The Complete JavaScript Course (En Proceso 🚀)</p>
+                        </div>
+                        <i class="fas fa-hourglass-half text-neon-cyan text-2xl"></i>
+                    </div>
+                    <p class="text-text-subtle text-xs mb-4">Completado: ~50% - FreeCodeCamp</p>
+                    <div class="flex gap-3">
+                        <button class="px-4 py-2 bg-neon-blue/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-blue/30 transition-all cursor-not-allowed opacity-50">
+                            <i class="fas fa-lock mr-2"></i>Próximamente
+                        </button>
+                        <div class="px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-semibold">
+                            <i class="fas fa-code mr-2"></i>En Progreso
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <section id="contacto" class="py-20 px-4 md:py-36 relative bg-gradient-to-b from-bg-dark/50 via-bg-dark to-bg-dark/80">
+        <!-- Divisor sutil superior -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 text-center text-neon-blue neon-glow">Conectemos</h2>
+            <p class="text-lg text-text-muted mb-12 text-center">Abierto a conversaciones sobre arquitectura, performance y calidad</p>
+            
+            <!-- Formulario de Contacto -->
+            <form id="contactForm" class="space-y-6 p-8 bg-bg-card border border-neon-blue/20 rounded-lg">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-neon-blue mb-2">Nombre</label>
+                    <input type="text" id="name" name="name" required placeholder="Tu nombre"
+                           class="w-full px-4 py-3 bg-bg-dark border border-neon-blue/20 text-white rounded-lg focus:border-neon-blue focus:outline-none transition-all focus:shadow-lg focus:shadow-neon-blue/20">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-neon-blue mb-2">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="tu.email@ejemplo.com"
+                           class="w-full px-4 py-3 bg-bg-dark border border-neon-blue/20 text-white rounded-lg focus:border-neon-blue focus:outline-none transition-all focus:shadow-lg focus:shadow-neon-blue/20">
+                </div>
+                
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-neon-blue mb-2">Asunto</label>
+                    <input type="text" id="subject" name="subject" required placeholder="¿Sobre qué quieres hablar?"
+                           class="w-full px-4 py-3 bg-bg-dark border border-neon-blue/20 text-white rounded-lg focus:border-neon-blue focus:outline-none transition-all focus:shadow-lg focus:shadow-neon-blue/20">
+                </div>
+                
+                <div>
+                    <label for="message" class="block text-sm font-medium text-neon-blue mb-2">Mensaje</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Tu mensaje aquí..."
+                              class="w-full px-4 py-3 bg-bg-dark border border-neon-blue/20 text-white rounded-lg focus:border-neon-blue focus:outline-none transition-all focus:shadow-lg focus:shadow-neon-blue/20 resize-none"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full px-6 py-3 bg-neon-blue text-bg-dark font-semibold rounded-lg hover:bg-neon-cyan hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
+                    Enviar Mensaje
+                </button>
+            </form>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12 flex-wrap">
+                <a href="mailto:fabisdev@email.com" 
+                   class="px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-bg-dark hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
+                    <i class="fas fa-envelope mr-2"></i>Email
+                </a>
+                <a href="https://github.com/fabisdev" target="_blank" rel="noopener"
+                   class="px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-bg-dark hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
+                    <i class="fab fa-github mr-2"></i>GitHub
+                </a>
+                <a href="https://linkedin.com/in/fabisdev" target="_blank" rel="noopener"
+                   class="px-6 py-3 border-2 border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-bg-dark hover:shadow-lg hover:shadow-accent/50 transition-all">
+                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 px-4 md:py-12 border-t border-neon-blue/10 bg-bg-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-bold text-neon-blue mb-4">FabisDev</h3>
+                    <p class="text-text-muted text-sm">Full Stack Developer | QA Engineer | Backend Specialist</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-neon-blue mb-3">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Inicio</a></li>
+                        <li><a href="#stack" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Stack Técnico</a></li>
+                        <li><a href="#experiencia" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Experiencia</a></li>
+                        <li><a href="#proyectos" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Proyectos</a></li>
+                        <li><a href="#certificados" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Certificados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-neon-blue mb-3">Redes Sociales</h4>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/fabisdev" target="_blank" rel="noopener"
+                           class="text-text-muted hover:text-neon-cyan transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/fabisdev" target="_blank" rel="noopener"
+                           class="text-text-muted hover:text-neon-cyan transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="mailto:fabisdev@email.com"
+                           class="text-text-muted hover:text-neon-cyan transition-colors">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-neon-blue/10 pt-6 text-center">
+                <p class="text-text-subtle text-sm">© 2024 FabisDev. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL PARA PROYECTOS -->
+    <div id="projectModal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-bg-card border border-neon-blue/30 rounded-lg max-w-2xl w-full max-h-96 overflow-y-auto relative">
+            <button id="closeModal" class="absolute top-4 right-4 text-neon-cyan hover:text-neon-blue transition-colors text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div id="modalContent" class="p-8">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PARA CERTIFICADOS -->
+    <div id="certModal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-bg-card border border-neon-blue/30 rounded-lg max-w-2xl w-full relative">
+            <button id="closeCertModal" class="absolute top-4 right-4 text-neon-cyan hover:text-neon-blue transition-colors text-2xl z-10">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div id="certModalContent" class="p-8">
+                <img id="certImage" src="" alt="Certificado" class="w-full rounded-lg">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
