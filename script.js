@@ -22,8 +22,8 @@ const showNotification = (message, type = 'info', duration = 3000) => {
   const bgColor = {
     success: 'bg-accent text-bg-dark',
     error: 'bg-red-500 text-white',
-    info: 'bg-primary text-bg-dark'
-  }[type] || 'bg-primary text-bg-dark';
+    info: 'bg-neon-blue text-bg-dark'
+  }[type] || 'bg-neon-blue text-bg-dark';
 
   notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg 
                              font-semibold z-50 animate-slide-in ${bgColor}`;
@@ -236,14 +236,14 @@ function initFormValidation() {
   const emailInput = document.querySelector('input[name="email"]');
   if (!emailInput) return;
 
-  emailInput.addEventListener('blur', () => {
+emailInput.addEventListener('blur', () => {
     const value = emailInput.value.trim();
     if (value && !isValidEmail(value)) {
       emailInput.classList.add('border-red-500');
-      emailInput.classList.remove('border-primary');
+      emailInput.classList.remove('border-neon-blue');
     } else {
       emailInput.classList.remove('border-red-500');
-      emailInput.classList.add('border-primary');
+      emailInput.classList.add('border-neon-blue');
     }
   });
 }
