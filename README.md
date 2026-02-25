@@ -4,8 +4,7 @@ Portafolio profesional de **Fabián Pilonieta** - Full Stack Developer & QA Engi
 
 ## 🚀 Ver online
 
-Desplegado en Vercel: [https://portafolio-fabis-dev.vercel.app](https://portafolio-fabis-dev.vercel.app)
-
+Desplegado en Vercel: https://fabisdev-portafolio.vercel.app/
 ## 🛠️ Stack Tecnológico
 
 - **HTML5** - Semántica moderna
