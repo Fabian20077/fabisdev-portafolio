@@ -6,21 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselData = {
         mv1: {
             images: [
-                { src: 'assets/images/projects/mv-inventario-1-0/login.png', caption: 'Pantalla de Login' },
-                { src: 'assets/images/projects/mv-inventario-1-0/dashboard.png', caption: 'Dashboard Principal' },
-                { src: 'assets/images/projects/mv-inventario-1-0/metricas.png', caption: 'Métricas en Tiempo Real' },
-                { src: 'assets/images/projects/mv-inventario-1-0/historial%20de%20movimientos.png', caption: 'Historial de Movimientos' }
+                { src: 'assets/images/projects/mv-inventario-1-0/login.webp', caption: 'Pantalla de Login' },
+                { src: 'assets/images/projects/mv-inventario-1-0/dashboard.webp', caption: 'Dashboard Principal' },
+                { src: 'assets/images/projects/mv-inventario-1-0/metricas.webp', caption: 'Métricas en Tiempo Real' },
+                { src: 'assets/images/projects/mv-inventario-1-0/historial%20de%20movimientos.webp', caption: 'Historial de Movimientos' }
             ]
         },
         mvpro: {
             images: [
-                { src: 'assets/images/projects/mv-inventario-pro/dashboard.png', caption: 'Dashboard Pro' },
-                { src: 'assets/images/projects/mv-inventario-pro/Metricas.png', caption: 'Métricas Avanzadas' },
-                { src: 'assets/images/projects/mv-inventario-pro/historial%20de%20precios.png', caption: 'Historial de Precios' },
-                { src: 'assets/images/projects/mv-inventario-pro/gestion%20de%20Productos.png', caption: 'Gestión de Productos' },
-                { src: 'assets/images/projects/mv-inventario-pro/gestion%20de%20impuestos.png', caption: 'Gestión de Impuestos' },
-                { src: 'assets/images/projects/mv-inventario-pro/configuraciones.png', caption: 'Configuraciones (Beta)' },
-                { src: 'assets/images/projects/mv-inventario-pro/facturacion.png', caption: 'Facturación (Beta)' }
+                { src: 'assets/images/projects/mv-inventario-pro/dashboard.webp', caption: 'Dashboard Pro' },
+                { src: 'assets/images/projects/mv-inventario-pro/Metricas.webp', caption: 'Métricas Avanzadas' },
+                { src: 'assets/images/projects/mv-inventario-pro/historial%20de%20precios.webp', caption: 'Historial de Precios' },
+                { src: 'assets/images/projects/mv-inventario-pro/gestion%20de%20Productos.webp', caption: 'Gestión de Productos' },
+                { src: 'assets/images/projects/mv-inventario-pro/gestion%20de%20impuestos.webp', caption: 'Gestión de Impuestos' },
+                { src: 'assets/images/projects/mv-inventario-pro/configuraciones.webp', caption: 'Configuraciones (Beta)' },
+                { src: 'assets/images/projects/mv-inventario-pro/Facturacion.webp', caption: 'Facturación (Beta)' }
             ]
         }
     };
