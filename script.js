@@ -32,23 +32,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ===== PHOTO PARALLAX ===== */
+    /* ===== PHOTO TILT 3D ===== */
     const heroPhoto = document.getElementById('heroPhoto');
+
     if (heroPhoto && !isTouchDevice) {
-        document.addEventListener('mousemove', (e) => {
+        const shine = heroPhoto.querySelector('.hero-photo-shine');
+        const maxTilt = 12; // grados máximos de rotación
+        let rafTilt = null;
+        let targetRX = 0, targetRY = 0;
+        let currentRX = 0, currentRY = 0;
+
+        heroPhoto.addEventListener('mousemove', (e) => {
             const rect = heroPhoto.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const deltaX = (e.clientX - centerX) / rect.width;
-            const deltaY = (e.clientY - centerY) / rect.height;
-            const rotateY = deltaX * 8;
-            const rotateX = -deltaY * 8;
-            heroPhoto.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            const x = (e.clientX - rect.left) / rect.width  * 2 - 1;
+            const y = (e.clientY - rect.top)  / rect.height * 2 - 1;
+
+            targetRY =  x * maxTilt;
+            targetRX = -y * maxTilt;
+
+            if (shine) {
+                const px = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1);
+                const py = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
+                shine.style.background = `radial-gradient(
+                    circle at ${px}% ${py}%,
+                    rgba(255,255,255,0.12) 0%,
+                    transparent 55%
+                )`;
+            }
+
+            heroPhoto.classList.add('tilting');
         });
 
         heroPhoto.addEventListener('mouseleave', () => {
-            heroPhoto.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
+            targetRX = 0;
+            targetRY = 0;
+            heroPhoto.classList.remove('tilting');
         });
+
+        function animateTilt() {
+            currentRX += (targetRX - currentRX) * 0.1;
+            currentRY += (targetRY - currentRY) * 0.1;
+
+            heroPhoto.style.transform = 
+                `rotateX(${currentRX.toFixed(2)}deg) rotateY(${currentRY.toFixed(2)}deg)`;
+
+            rafTilt = requestAnimationFrame(animateTilt);
+        }
+        animateTilt();
     }
 
     /* ===== LIGHTBOX WITH NAVIGATION ===== */
@@ -114,6 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    function openCarousel(gallery) {
+        const btn = document.querySelector(`.view-capturas-btn[data-gallery="${gallery}"]`);
+        if (btn) btn.click();
+    }
+
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
     lightboxNext.addEventListener('click', () => navigateLightbox(1));
@@ -130,19 +165,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===== THEME TOGGLE ===== */
-    const html = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
-    const stored = localStorage.getItem('theme');
-
-    if (stored) {
-        html.setAttribute('data-theme', stored);
-    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        html.setAttribute('data-theme', 'light');
-    }
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
 
     themeToggle?.addEventListener('click', () => {
-        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
     });
 
@@ -152,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navToggle?.addEventListener('click', () => navMenu?.classList.toggle('open'));
 
-    document.querySelectorAll('.navbar-link').forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => navMenu?.classList.remove('open'));
     });
 
@@ -181,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ===== ACTIVE SECTION ===== */
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.navbar-link');
+    const navLinks = document.querySelectorAll('.nav-link');
 
     const sectionObs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
