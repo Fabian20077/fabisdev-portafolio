@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fabián Pilonieta (Fabisdev) — Full Stack Developer & QA Engineer">
+    <meta name="author" content="Fabián Pilonieta">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>Fabisdev — Full Stack Developer & QA Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-counter" id="lightboxCounter"></span>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Siguiente">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#hero" class="navbar-logo">fabisdev<span>.</span></a>
+
+            <ul class="navbar-menu" id="navMenu">
+                <li><a href="#hero" class="navbar-link active" data-section="hero">Inicio</a></li>
+                <li><a href="#stack" class="navbar-link" data-section="stack">Stack</a></li>
+                <li><a href="#experiencia" class="navbar-link" data-section="experiencia">Experiencia</a></li>
+                <li><a href="#proyectos" class="navbar-link" data-section="proyectos">Proyectos</a></li>
+                <li><a href="#formacion-certificados" class="navbar-link" data-section="formacion-certificados">Formación</a></li>
+                <li><a href="#contacto" class="navbar-link" data-section="contacto">Contacto</a></li>
+            </ul>
+
+            <div class="navbar-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="navbar-toggle" id="navToggle" aria-label="Menú">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section id="hero" class="hero section">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-content">
+                        <div class="status-badge reveal">Disponible para trabajar</div>
+                        <h1 class="display-xl hero-title reveal r1">
+                            <span class="line">Fabián</span>
+                            <span class="line">Pilonieta</span>
+                        </h1>
+                        <p class="body-lg hero-description reveal r2">
+                            Backend Engineer & QA Specialist especializado en arquitecturas escalables, validación estricta de datos e infraestructura containerizada.
+                        </p>
+                        <div class="hero-actions reveal r3">
+                            <a href="#proyectos" class="btn btn-accent">
+                                Ver proyectos
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                            <a href="#contacto" class="btn">Contactar</a>
+                        </div>
+                    </div>
+
+                    <aside class="hero-sidebar reveal r2">
+                        <div class="hero-photo" id="heroPhoto">
+                            <img src="foto-perfil.png" alt="Fabián Pilonieta" loading="eager">
+                            <div class="hero-photo-label">Fabisdev — 2025</div>
+                        </div>
+                        <div class="hero-meta">
+                            <div class="hero-meta-item">
+                                <div class="hero-meta-label">Ubicación</div>
+                                <div class="hero-meta-value">Colombia</div>
+                            </div>
+                            <div class="hero-meta-item">
+                                <div class="hero-meta-label">Email</div>
+                                <div class="hero-meta-value">
+                                    <a href="mailto:fabianenriquepilonieta@gmail.com" class="hero-meta-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                        Contactar
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="hero-meta-item">
+                                <div class="hero-meta-label">LinkedIn</div>
+                                <div class="hero-meta-value">
+                                    <a href="https://www.linkedin.com/in/fabisdev" target="_blank" rel="noopener" class="hero-meta-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                        Ver perfil
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="hero-meta-item">
+                                <div class="hero-meta-label">Especialidad</div>
+                                <div class="hero-meta-value">Backend & QA</div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="hero-scroll reveal">
+                        <div class="hero-scroll-line"></div>
+                        <span class="mono-xs">Scroll</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STACK ===== -->
+        <section id="stack" class="section">
+            <div class="container">
+                <span class="section-label reveal">01 — Stack Técnico</span>
+                <h2 class="display-lg reveal r1" style="margin-bottom: 3rem;">Herramientas y tecnologías</h2>
+
+                <div class="stack-grid reveal">
+                    <div class="stack-cat">
+                        <div class="stack-cat-head">
+                            <svg class="stack-cat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><rect x="2" y="3" width="20" height="14" rx="0" ry="0"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            <h3 class="stack-cat-title">Backend</h3>
+                        </div>
+                        <div class="stack-tags">
+                            <span class="stack-tag">Node.js</span>
+                            <span class="stack-tag">Express</span>
+                            <span class="stack-tag">TypeScript</span>
+                            <span class="stack-tag">REST API</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-cat">
+                        <div class="stack-cat-head">
+                            <svg class="stack-cat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                            <h3 class="stack-cat-title">Base de Datos</h3>
+                        </div>
+                        <div class="stack-tags">
+                            <span class="stack-tag">MySQL</span>
+                            <span class="stack-tag">Prisma v7</span>
+                            <span class="stack-tag">Stored Procedures</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-cat">
+                        <div class="stack-cat-head">
+                            <svg class="stack-cat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            <h3 class="stack-cat-title">Frontend</h3>
+                        </div>
+                        <div class="stack-tags">
+                            <span class="stack-tag">JavaScript</span>
+                            <span class="stack-tag">HTML5</span>
+                            <span class="stack-tag">CSS3</span>
+                            <span class="stack-tag">Responsive</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-cat">
+                        <div class="stack-cat-head">
+                            <svg class="stack-cat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M18 10h-4V4a2 2 0 0 0-4 0v6H6l6 8 6-8z"></path></svg>
+                            <h3 class="stack-cat-title">DevOps</h3>
+                        </div>
+                        <div class="stack-tags">
+                            <span class="stack-tag">Docker</span>
+                            <span class="stack-tag">Git</span>
+                            <span class="stack-tag">CI/CD</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-cat">
+                        <div class="stack-cat-head">
+                            <svg class="stack-cat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="11" width="18" height="11" rx="0" ry="0"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            <h3 class="stack-cat-title">Seguridad</h3>
+                        </div>
+                        <div class="stack-tags">
+                            <span class="stack-tag">JWT</span>
+                            <span class="stack-tag">Zod</span>
+                            <span class="stack-tag">CORS</span>
+                            <span class="stack-tag">Bcrypt</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-cat">
+                        <div class="stack-cat-head">
+                            <svg class="stack-cat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            <h3 class="stack-cat-title">QA & Testing</h3>
+                        </div>
+                        <div class="stack-tags">
+                            <span class="stack-tag">Jest</span>
+                            <span class="stack-tag">Supertest</span>
+                            <span class="stack-tag">Pruebas E2E</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXPERIENCIA ===== -->
+        <section id="experiencia" class="section">
+            <div class="container">
+                <span class="section-label reveal">02 — Experiencia</span>
+                <h2 class="display-lg reveal r1" style="margin-bottom: 3rem;">Trayectoria profesional</h2>
+
+                <div class="exp-list">
+                    <div class="exp-item reveal">
+                        <div class="exp-period">
+                            <span class="mono">2024 — Presente</span>
+                        </div>
+                        <div class="exp-details">
+                            <div class="status-badge">Actual</div>
+                            <h3 class="heading-md exp-role">Desarrollador Full Stack</h3>
+                            <p class="exp-company">Proyectos Freelance & Desarrollo Personal</p>
+                            <ul class="exp-desc">
+                                <li>Desarrollo de aplicaciones full-stack con arquitectura escalable</li>
+                                <li>Optimización de queries SQL: 10s → 85ms (99% mejora)</li>
+                                <li>Implementación de validación en 3 capas (Frontend/Backend/BD)</li>
+                            </ul>
+                            <div class="exp-tech">
+                                <span class="stack-tag">Node.js</span>
+                                <span class="stack-tag">Express</span>
+                                <span class="stack-tag">MySQL</span>
+                                <span class="stack-tag">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-item reveal">
+                        <div class="exp-period">
+                            <span class="mono">2024 — Presente</span>
+                        </div>
+                        <div class="exp-details">
+                            <h3 class="heading-md exp-role">QA & Calidad de Software</h3>
+                            <p class="exp-company">Mindset de Calidad First</p>
+                            <ul class="exp-desc">
+                                <li>Diseño de sistemas de validación robustos</li>
+                                <li>Checklists de validación para cada módulo</li>
+                                <li>Pruebas funcionales, estructurales y de integración</li>
+                                <li>Documentación técnica de casos de prueba</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal" style="margin-top: 3rem;">
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-val">99%</div>
+                            <div class="metric-label">Mejora queries</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-val">162</div>
+                            <div class="metric-label">Tests Jest</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-val">100%</div>
+                            <div class="metric-label">Seguridad</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-val">∞</div>
+                            <div class="metric-label">Escalabilidad</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROYECTOS ===== -->
+        <section id="proyectos" class="section">
+            <div class="container">
+                <span class="section-label reveal">03 — Proyectos</span>
+                <h2 class="display-lg reveal r1" style="margin-bottom: 3rem;">Trabajo seleccionado</h2>
+
+                <div class="projects-grid reveal">
+                    <!-- HELPIFY (Nuevo - Primero) -->
+                    <article class="project">
+                        <div class="project-brand">
+                            <div class="project-logo">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="helpify-logo">
+                                    <path d="M24 4L6 14v12c0 11.1 7.7 21.4 18 24 10.3-2.6 18-12.9 18-24V14L24 4z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M24 22l-6-6m6 6l-6 6m6-6l6-6m-6 6V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span class="project-version">Backend</span>
+                            <div class="project-tech">
+                                <span class="stack-tag">TypeScript</span>
+                                <span class="stack-tag">Node.js</span>
+                                <span class="stack-tag">Prisma v7</span>
+                                <span class="stack-tag">Docker</span>
+                                <span class="stack-tag">MySQL</span>
+                                <span class="stack-tag">Jest</span>
+                            </div>
+                        </div>
+                        <div class="project-story">
+                            <div class="project-head">
+                                <h2 class="project-title">Sistema Inteligente de Soporte</h2>
+                            </div>
+                            <p class="project-desc">
+                                Plataforma de gestión de tickets con enfoque QA First. Arquitectura backend robusta con validación estricta, machine de estados determinista y sistema de priorización dinámica.
+                            </p>
+                            <ul class="project-qa-highlights">
+                                <li>QA First: 162 tests (unitarios e integración) con Jest y Supertest</li>
+                                <li>Seguridad: Validación de Magic Bytes (MIME) y schemas con Zod</li>
+                                <li>Lógica: Máquina de estados determinista para ciclo de vida de tickets</li>
+                                <li>Algoritmo: Sistema de Urgency Score (0-100) para priorización dinámica</li>
+                            </ul>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <div class="metric-val">162</div>
+                                    <div class="metric-label">Tests</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-val">100%</div>
+                                    <div class="metric-label">Pass</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-val">4</div>
+                                    <div class="metric-label">Contenedores</div>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/Fabian20077" target="_blank" rel="noopener" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    Código
+                                </a>
+                                <button class="view-capturas-btn" data-gallery="helpify">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    [+] VER CAPTURAS Y PRUEBAS (QA)
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Thumbnails (hidden, triggered by button) -->
+                        <div class="project-thumbs" data-gallery="helpify" style="display: none;">
+                            <button class="project-thumb" data-src="assets/images/projects/HELPIFY/Resultado de los tests.png" data-caption="162 Tests Jest - Estado: Pass ✅">
+                                <img src="assets/images/projects/HELPIFY/Resultado de los tests.png" alt="162 tests Jest">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/HELPIFY/Dashboard.png" data-caption="Dashboard Principal">
+                                <img src="assets/images/projects/HELPIFY/Dashboard.png" alt="Dashboard">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/HELPIFY/Tickets.png" data-caption="Gestión de Tickets">
+                                <img src="assets/images/projects/HELPIFY/Tickets.png" alt="Tickets">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/HELPIFY/Usuarios.png" data-caption="Gestión de Usuarios">
+                                <img src="assets/images/projects/HELPIFY/Usuarios.png" alt="Usuarios">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/HELPIFY/Categorias.png" data-caption="Categorías de Soporte">
+                                <img src="assets/images/projects/HELPIFY/Categorias.png" alt="Categorías">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/HELPIFY/Tickets de Soporte.png" data-caption="Tickets de Soporte">
+                                <img src="assets/images/projects/HELPIFY/Tickets de Soporte.png" alt="Tickets de Soporte">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/HELPIFY/Login.png" data-caption="Pantalla de Login">
+                                <img src="assets/images/projects/HELPIFY/Login.png" alt="Login">
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- MV Inventario 1.0 -->
+                    <article class="project">
+                        <div class="project-brand">
+                            <div class="project-logo">
+                                <img src="./assets/images/projects/mv-inventario-1-0/logos/mv1-logo.webp" alt="MV Logo">
+                            </div>
+                            <span class="project-version">v1.0</span>
+                            <div class="project-tech">
+                                <span class="stack-tag">Node.js</span>
+                                <span class="stack-tag">Express</span>
+                                <span class="stack-tag">MySQL</span>
+                                <span class="stack-tag">Chart.js</span>
+                            </div>
+                        </div>
+                        <div class="project-story">
+                            <div class="project-head">
+                                <h2 class="project-title">Inventario 1.0</h2>
+                            </div>
+                            <p class="project-desc">
+                                Mi primer proyecto serio. Aprendí los fundamentos de backend, bases de datos y arquitectura. Prototipo funcional con KPIs en tiempo real.
+                            </p>
+                            <ul class="project-qa-highlights">
+                                <li>Dashboard con KPIs en tiempo real</li>
+                                <li>Gestión de productos y categorías</li>
+                                <li>Historial completo de movimientos</li>
+                            </ul>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <div class="metric-val">4</div>
+                                    <div class="metric-label">KPIs</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-val">Real</div>
+                                    <div class="metric-label">Análisis</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-val">∞</div>
+                                    <div class="metric-label">Escalable</div>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/Fabian20077" target="_blank" rel="noopener" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    Código
+                                </a>
+                                <button class="view-capturas-btn" data-gallery="mv1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    [+] VER CAPTURAS Y PRUEBAS (QA)
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Thumbnails v1.0 -->
+                        <div class="project-thumbs" data-gallery="mv1" style="display: none;">
+                            <button class="project-thumb" data-src="assets/images/projects/mv-inventario-1-0/login.webp" data-caption="Pantalla de Login">
+                                <img src="assets/images/projects/mv-inventario-1-0/login.webp" alt="Login">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/mv-inventario-1-0/dashboard.webp" data-caption="Dashboard Principal">
+                                <img src="assets/images/projects/mv-inventario-1-0/dashboard.webp" alt="Dashboard">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/mv-inventario-1-0/metricas.webp" data-caption="Métricas en Tiempo Real">
+                                <img src="assets/images/projects/mv-inventario-1-0/metricas.webp" alt="Métricas">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/mv-inventario-1-0/historial de movimientos.webp" data-caption="Historial de Movimientos">
+                                <img src="assets/images/projects/mv-inventario-1-0/historial de movimientos.webp" alt="Historial">
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- MV Inventario Pro -->
+                    <article class="project">
+                        <div class="project-brand">
+                            <div class="project-logo">
+                                <img src="./assets/images/projects/mv-inventario-1-0/logos/mvpro-logo.webp" alt="MV Pro Logo">
+                            </div>
+                            <span class="project-version">v2.0</span>
+                            <div class="project-tech">
+                                <span class="stack-tag">Node.js</span>
+                                <span class="stack-tag">Zod</span>
+                                <span class="stack-tag">Docker</span>
+                                <span class="stack-tag">JWT</span>
+                            </div>
+                        </div>
+                        <div class="project-story">
+                            <div class="project-head">
+                                <h2 class="project-title">Inventario Pro</h2>
+                            </div>
+                            <p class="project-desc">
+                                Optimización de queries (10s → 85ms), validación 3 capas, JWT y containerización Docker. La evolución del prototipo original.
+                            </p>
+                            <ul class="project-qa-highlights">
+                                <li>Optimización SQL: 10s → 85ms (99% mejora)</li>
+                                <li>Validación en 3 capas (Frontend/Backend/BD)</li>
+                                <li>Containerización con Docker (3 contenedores)</li>
+                                <li>Autenticación JWT con Zod</li>
+                            </ul>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <div class="metric-val">10x</div>
+                                    <div class="metric-label">Más rápido</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-val">100%</div>
+                                    <div class="metric-label">Validación</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-val">3</div>
+                                    <div class="metric-label">Contenedores</div>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/Fabian20077" target="_blank" rel="noopener" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    Código
+                                </a>
+                                <button class="view-capturas-btn" data-gallery="mvpro">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    [+] VER CAPTURAS Y PRUEBAS (QA)
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Thumbnails Pro -->
+                        <div class="project-thumbs" data-gallery="mvpro" style="display: none;">
+                            <button class="project-thumb" data-src="assets/images/projects/mv-inventario-pro/dashboard.webp" data-caption="Dashboard Pro">
+                                <img src="assets/images/projects/mv-inventario-pro/dashboard.webp" alt="Dashboard Pro">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/mv-inventario-pro/Metricas.webp" data-caption="Métricas Avanzadas">
+                                <img src="assets/images/projects/mv-inventario-pro/Metricas.webp" alt="Métricas Pro">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/mv-inventario-pro/gestion de Productos.webp" data-caption="Gestión de Productos">
+                                <img src="assets/images/projects/mv-inventario-pro/gestion de Productos.webp" alt="Productos">
+                            </button>
+                            <button class="project-thumb" data-src="assets/images/projects/mv-inventario-pro/Facturacion.webp" data-caption="Facturación">
+                                <img src="assets/images/projects/mv-inventario-pro/Facturacion.webp" alt="Facturación">
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FORMACIÓN + CERTIFICADOS ===== -->
+        <section id="formacion-certificados" class="section">
+            <div class="container">
+                <span class="section-label reveal">04 — Formación & Certificados</span>
+                <h2 class="display-lg reveal r1" style="margin-bottom: 3rem;">Educación continua</h2>
+
+                <div class="edu-cert-grid reveal">
+                    <!-- Formación -->
+                    <div class="edu-col">
+                        <h3 class="edu-col-title">Formación Académica</h3>
+
+                        <div class="edu-item">
+                            <div class="edu-year">2023 — Presente</div>
+                            <h4 class="heading-md edu-title">Tecnólogo en Análisis y Desarrollo de Software</h4>
+                            <p class="edu-inst">SENA — Servicio Nacional de Aprendizaje</p>
+                            <div class="edu-competencies">
+                                <span class="edu-comp">Análisis de sistemas</span>
+                                <span class="edu-comp">Bases de datos</span>
+                                <span class="edu-comp">QA Testing</span>
+                                <span class="edu-comp">Documentación técnica</span>
+                                <span class="edu-comp">Metodologías de desarrollo</span>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <span class="mono-xs" style="color: var(--accent);">Estado: Etapa productiva en búsqueda</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificados -->
+                    <div class="edu-col">
+                        <h3 class="edu-col-title">Certificaciones</h3>
+
+                        <a href="assets/certificates/certificado_Docker Foundations Course.pdf" target="_blank" rel="noopener" class="cert-item">
+                            <div class="cert-info">
+                                <h4>Docker Foundations</h4>
+                                <p>Docker Inc.</p>
+                            </div>
+                            <div>
+                                <span class="cert-year">2025</span>
+                                <svg class="cert-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </div>
+                        </a>
+
+                        <a href="assets/certificates/cerficado calude-code.pdf" target="_blank" rel="noopener" class="cert-item">
+                            <div class="cert-info">
+                                <h4>Claude Code</h4>
+                                <p>Anthropic</p>
+                            </div>
+                            <div>
+                                <span class="cert-year">2025</span>
+                                <svg class="cert-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </div>
+                        </a>
+
+                        <a href="assets/certificates/certificado-claseflix PowerBI.pdf" target="_blank" rel="noopener" class="cert-item">
+                            <div class="cert-info">
+                                <h4>Power BI</h4>
+                                <p>ClaseFlix</p>
+                            </div>
+                            <div>
+                                <span class="cert-year">2025</span>
+                                <svg class="cert-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </div>
+                        </a>
+
+                        <a href="assets/certificates/cerficado-curador de datos.pdf" target="_blank" rel="noopener" class="cert-item">
+                            <div class="cert-info">
+                                <h4>Curador de Datos</h4>
+                                <p>Fundación Carlos Slim</p>
+                            </div>
+                            <div>
+                                <span class="cert-year">2025</span>
+                                <svg class="cert-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </div>
+                        </a>
+
+                        <a href="assets/certificates/certificate-curso-qa-testing-efectivo-696e87c75fd454e4480026d4.pdf" target="_blank" rel="noopener" class="cert-item">
+                            <div class="cert-info">
+                                <h4>QA Testing Efectivo</h4>
+                                <p>Escuela IT</p>
+                            </div>
+                            <div>
+                                <span class="cert-year">2025</span>
+                                <svg class="cert-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </div>
+                        </a>
+
+                        <div class="cert-progress">
+                            <div class="cert-progress-head">
+                                <h4>Full Stack Developer — FreeCodeCamp</h4>
+                                <p>En progreso (~60%)</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACTO ===== -->
+        <section id="contacto" class="section">
+            <div class="container">
+                <span class="section-label reveal">05 — Contacto</span>
+                <h2 class="display-lg reveal r1" style="margin-bottom: 3rem;">Conectemos</h2>
+
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <p class="body-lg contact-text">
+                            Abierto a conversaciones sobre arquitectura de software, calidad y oportunidades de colaboración.
+                        </p>
+
+                        <div class="contact-links">
+                            <a href="mailto:fabianenriquepilonieta@gmail.com" class="contact-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                fabianenriquepilonieta@gmail.com
+                            </a>
+                            <a href="https://github.com/Fabian20077" target="_blank" rel="noopener" class="contact-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                github.com/Fabian20077
+                            </a>
+                            <a href="https://www.linkedin.com/in/fabisdev" target="_blank" rel="noopener" class="contact-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                linkedin.com/in/fabisdev
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrap reveal r1">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-field">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" id="name" name="name" class="form-input" required autocomplete="name">
+                            </div>
+                            <div class="form-field">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-input" required autocomplete="email">
+                            </div>
+                            <div class="form-field">
+                                <label for="subject" class="form-label">Asunto</label>
+                                <input type="text" id="subject" name="subject" class="form-input" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="message" class="form-label">Mensaje</label>
+                                <textarea id="message" name="message" class="form-textarea" required rows="5"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-accent" style="align-self: flex-start;">
+                                Enviar mensaje
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-copy">2025 fabisdev. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Fabian20077" target="_blank" rel="noopener" class="footer-link" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fabisdev" target="_blank" rel="noopener" class="footer-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
