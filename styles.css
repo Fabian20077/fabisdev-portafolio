@@ -945,17 +945,41 @@ a { cursor: none; }
   display: flex;
   flex-direction: row;
   width: 100%;
+  /* Align items to start instead of stretch to prevent brand column from stretching
+     when story column has tall content (e.g., credentials table in Helpify).
+     This keeps the logo/carousel at the top without unwanted whitespace below. */
+  align-items: flex-start;
 }
 
 .project-brand {
   width: 30%;
   min-width: 250px;
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.75rem;
   border-right: 1px solid #222;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background: #080808;
+  align-items: center;
+  /* Fondo consistente en toda la columna izquierda */
+  background: var(--bg-raised, #0a0a0a);
+  /* Asegurar que el fondo cubra toda la altura */
+  min-height: 100%;
+  /* Gap consistente entre elementos hijos */
+  gap: 0;
+}
+
+/* Light mode adjustment */
+:root[data-theme="light"] .project-brand {
+  background: #f9f9f9;
+  border-right-color: #e0e0e0;
+}
+
+/* Carousel/Logo container - mantener el hover effect pero sin romper el panel */
+#carousel-helpify,
+#carousel-mv1,
+#carousel-mvpro {
+  /* El fondo gradiente se mantiene inline para hover effects */
+  /* Solo asegurar que no haya gaps */
+  margin-bottom: 1.25rem;
 }
 
 .project-logo {
@@ -1009,6 +1033,86 @@ a { cursor: none; }
   color: #fff;
 }
 
+.project-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Tech tags en la columna izquierda - mejor visibilidad */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  justify-content: center;
+}
+
+.project-tech .stack-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.project-tech .stack-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0, 85, 255, 0.08);
+}
+
+/* Light mode adjustments for tech tags */
+:root[data-theme="light"] .project-tech .stack-tag {
+  background: #fff;
+  border-color: #ddd;
+}
+
+:root[data-theme="light"] .project-tech .stack-tag:hover {
+  background: rgba(0, 85, 255, 0.05);
+}
+
+.project-status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.status-badge-item {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.status-active {
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.status-done {
+  color: var(--text-tertiary);
+  border-color: var(--border);
+}
+
 .project-version {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -1025,8 +1129,9 @@ a { cursor: none; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: auto;
+  margin-top: 0;
   align-items: center;
+  justify-content: center; /* Center tech tags when parent is centered */
 }
 
 .stack-tag {
@@ -1141,7 +1246,118 @@ a { cursor: none; }
 .project-actions {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-demo:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.project-credentials {
+  margin-top: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.credentials-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--border);
+}
+
+.credentials-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.credentials-table th {
+  padding: 0.4rem 1rem;
+  text-align: left;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-raised);
+}
+
+.credentials-table td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.credentials-table tr:last-child td {
+  border-bottom: none;
+}
+
+.credentials-table tr:hover td {
+  background: var(--bg-raised);
+}
+
+.cred-mono {
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+.cred-role {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.cred-admin {
+  background: rgba(0, 85, 255, 0.1);
+  color: #0055ff;
+  border: 1px solid rgba(0, 85, 255, 0.2);
+}
+
+.cred-agent {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.cred-customer {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .project-link {
